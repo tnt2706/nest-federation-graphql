@@ -13,11 +13,6 @@ import { PostsService } from './posts.service';
 export class PostsResolver {
   constructor(private readonly postsService: PostsService) {}
 
-  @Query('findPost')
-  findPost(@Args({ name: 'id', type: () => ID }) id: number) {
-    return this.postsService.findOne(id);
-  }
-
   @Query('getPosts')
   getPosts() {
     return this.postsService.findAll();
